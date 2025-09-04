@@ -1,0 +1,13 @@
+= Mobile App Development 2
+Matias Pizzolato <matias@pizzola.to>
+
+:toc:
+
+This repository contains the code and resources for the Mobile App Development 2 course.
+
+== Contents
+
+* Weekly Assignments
+** link:assignments/week1/README.adoc[Week 1]
+
+* Final Project
