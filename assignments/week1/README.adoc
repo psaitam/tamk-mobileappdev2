@@ -1,2 +1,114 @@
 = Week 1
+:toc:
+
+== Assignment & Answers
+
+=== 1. Overview of Mobile Application Development
+
+
+You are tasked with creating a mobile application for both Android and iOS. From the perspective of tools and programming languages, what options are available for building the app?::
+Native mobile app: Android - Java (outdated) and Kotlin (modern) using Android Studio. Compiled / built to an .apk and published through Google Play Store. iOS - Swift with SwiftUI (modern) and Objective-C (outdated, used in legacy apps) using xcode and published through Apple App Store. So two apps, two stacks, two codebases, twice the work.
+
++
+Cross-platform app: React native (Javascript, React Framework with Native components) by Facebook, Flutter (Dart) by Google, Xamarin (C#) by Microsoft
+
++ 
+Web-based app: HTML, CSS, JavaScript/TypeScript using Frameworks like React, Angular, Vue.js or Svelte. Mobile apps need a browser or a webview to run.
+
+
+Explain the following approaches to mobile application development, and provide a clear example for each::
+
+Native mobile development:: 
+Native apps are built for every target platform (iOS, Android) using the native tools and language of the platform. This way, the app can use all the native components and features. Usually native apps have a great performance and user experience because of this. They feel like they are part of the system because they use the same components and principles as the mobile app. However, this means that two different apps need to be built and maintained to support both iOS and Android. This can be expensive and time consuming.
+
++ 
+Examples: Instagram, Youtube, WhatsApp, Spotify. They use native components and features like camera, notifications, storage on the device. Scroll behaviour is smooth and the apps integrate into the system for example through the "share with" feature of the OS.
+
++
+Implementation example: I want to create a weather app. In order for Android and iOS users to use it, I need to build two different apps. For Android I use Kotlin and Android Studio, for iOS I use Swift and Xcode. I need to publish the apps in two different stores (Google Play Store and Apple App Store). When I want to add new features or fix a bug, I need to do it twice.
+
+Cross-platform development::
+Cross-platform apps attempt to solve the problem of building and maintaining multiple apps/codebases for diffrent platforms. They use a single codebase and not one for each OS. Cross-platform frameworks define abstractions / interfaces for the native components and features. This means while building the app, the developer builds the UI and functionality using the abstractions. Then, wenn building the app for a specific platform, the abstractions are replaced with the native components and features of that platform. Everything after developing the app (building the specific binaries, publishing, updates) are still platform specific. Usually cross-platform apps can also be built for desktop / web.
+
++
+Examples: Nysse app, Bekabe App (Swiss banking app).
+
++
+Implementation example: I want to create a weather app. I chose a cross-platform framework to my liking (e.g. React Native). I implement the app features once in my single codebase. To release my app I can build my source code with the target platform Android and then for iOS. To publish it, I still need to have licenses for both Google Play Store and Apple App Store. To add features or fix bugs, I only need to do it once in my single codebase.
+
+Web-based development::
+Web-based apps are not installed directly on the device. They have to run in a browser or a webview. They are developed using the usual web technologies (HTML, CSS, JavaScript/Typescript). Because of this, web frameworks can be used to build the app (React, Angular, Vue.js, Svelte etc.). Web apps are deployed onto a web server and accessed through a URL, regardless of the platform. This means, the same app can be used on desktop and mobile devices. For this, the app ideally is built to be responsive so it looks good on all screens. 
+
++
+When it comes to installing the app on mobile devices, there are two common options: Using a Progressive Web App (PWA) or a shell-app which contains a webview (like a web browser without the address bar). Progressive Web Apps have some additional features to normal web sites like offline support or push notifications. However, still this isn't comparable with native or cross-platform apps because web apps cannot use all the native features of the device.
+
+
+
+What are the advantages of native apps compared to web apps? What advantages might web apps have over native apps?::
+Native app advantages:
+* Better performance because they are built for the specific platform and use native components/features of the device. This allows for animations and optimized interactions.
+* Better user experience because the have the same look and feel as other apps on the device. They have the same design principles and components as the OS.
+* Full access to all native features of the device (camera, notification, storage, sensors, biometrics etc.)
+* Can work offline without any limitations
+* Can be distributed through app stores which is the main way users find and install new apps.
+* Can set up background processes and widgets to directly integrate into the user experience.
+
++
+Web app advantages:
+* Single codebase for all platforms (desktop, mobile) which makes development and maintenance easier.
+* No need to install the app because it runs in a browser or webview (can be accessed through a URL).
+* Easier update the app because it always "loads" the latest version from the server when opening the web site.
+* Easy to share the app or a specific view/configuration by coping and sharing the URL.
+* Wider support with different frameworks and libraries available for web development. More established development tools and processes due to the long history of web development.
+* No platform-specific knowledge required. Web developers are more common and don't need to learn all the quirks of the different mobile platforms
+* Out-of-the box support for any device with a browser (desktop, mobile, tablet, smart TV)
+* More light weight development experience. No need to set up complex IDEs or emulators. Can be done with a simple text editor and browser.
+
+Into which of the above categories does React Native fit? Briefly describe how the React Native environment works at a conceptual level.::
+React Native is a cross-platform framework for building mobile apps (but also desktop/web apps). It uses JavaScript and the core of the React framework. In addition, React Native provides abstractions for native components and features of mobile devices. This way, the developer can build the app once using these abstractions and then build the app for a specific platform (Android, iOS). The parts used from React are web-independant. React native uses the same architecture / concepts as React for the web (components, props, state, hooks). However, instead of HTML tags, React Native provides native equivalents (e.g. View instead of div, Text instead of p/h1 etc.). 
+
++
+When building the app for a specific platform, these abstractions are replaced with the native equivalents of that platform (e.g. Text -> TextView on Android). So when building for Android, the platform-agnostic code is turned into a native Android app using the specified components and features of Android. After that the app can be compiled/built like any other android native app and published in the Google Play Store. The same process happens when building for iOS (but with the iOS native components and features).
+
+==== Additional theory questions
+
+What role does JavaScript play in React Native apps?::
+The "logic layer" of react apps is written in JavaScript. This means the logic, state management, data fetching and other functionality is written in JavaScript. When running a React Native app, a JavaScript engine runs. Which engine is used depends on the platform. The JavaScript code interacts with with the native components and features through a kind of link or bridge. Whenever the React App needs to do something with the native components, it communicates through this bridge. The native part of the React Native app is responsible for handing those requests and actually interacting with the specific platform. 
+
+How does React Native differ from React for the web in terms of rendering and platform support?::
+React for web uses HTML and CSS for rendering the UI. React Native uses native components and Stylesheets for rendering. React Native apps use abstractions for UI elements (View, Text, Image etc.) while React uses normal HTML Tags and Javascript.
+
++
+React for web only runs in a web browser. So if a device with access to the internet has a web browser (with JS support), it can load and run a React web app. React native apps on the other hand need to be built for a specific platform (Android, iOS). React Native apps are installed on the device like any other app from the App Store. Of course React native apps can also be built for web/desktop as an additional target but this is not the main use case. This works by replacing the abstractions with web equivalents (e.g. View -> div).
+
+What happens under the hood when a React Native component (e.g., Text) is displayed on an Android or iOS device?::
+React keeps a virtual representation of the UI in memory (Shadow tree). When something changes, React figures out what exactly changed and updates those parts in the virtual tree. Then, React communicates these changes through a bridge to the native part of the app. The native part then updates the actual native components on the device. Here the abstractions are replaced with the native equivalents of the platform. For example, a Text component in React Native is replaced with a TextView on Android. React Native uses a Layout engine to calculate the position and size of the components on the screen. This basically converts the virtual tree into the actual layout on the device and what the user sees.
+
+
+== 2. Building a React Native User Interface
+
+* [x] Implement a simple static React Native user interface for a small REST-based app (e.g., a weather app, currency converter, or news headlines viewer).
+* [x] Use at least three different core components (besides View and Text) in your app layout, and explain briefly what role each of them plays in mobile development.
+** `ScrollView`: A container that allows for scrolling content. This is important in mobile development because screen space is limited, and users often need to scroll to see more content.
+** `TextInput`: An input field that allows users to enter text. This is essential for forms, search bars, and any user input functionality in mobile apps.
+** `TouchableOpacity`: A button-like component that responds to touch events. It provides visual feedback when pressed. This is important that users can check that if they tapped a button or not.
+** `Image`: A component to display images. Images are an important content type in many mobile apps. It can be used for icons, photos or any visual content.
+** `FlatList`: A performant component for rendering large lists of data. It is optimized for handling long lists by only rendering items that are currently visible. This is one of the most common use cases in mobile apps, for example in social media or news apps (scrollers).
+* [x] Explore and use React Native’s core components from reactnative.dev.
+* [x] Instead of HTML tags, use native equivalents, such as:
+** View (container, like <div>)
+** Text (text elements)
+** Image (display images)
+** TextInput (input fields)
+** Button (basic button)
+** ScrollView or FlatList (scrollable content or lists)
+** These components are mapped to Android and iOS native UI components (e.g., Text → TextView on Android, UILabel on iOS).
+* [x] For this task, functionality is not required — only the static UI layout.
+
+== 3. Styling React Native Apps with StyleSheet
+* How does styling in React Native differ from styling in React for the web?
+** => React Native uses style sheets which are similar to CSS but not exactly the same. The styles are defined in JSON instead of with CSS syntax. The properties are translated to the native equivalents of the platform. Not all CSS properties are supported.
+* [x] Apply your own custom styling to the UI you created in the previous task using React Native’s StyleSheet.
+* [x] Experiment with layout, colors, and spacing to make the app visually clear and appealing.
+* [x] Challenge extension: Adjust your styles so the UI still looks good when tested on different device sizes in Expo.
 
