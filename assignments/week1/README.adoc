@@ -87,6 +87,9 @@ React keeps a virtual representation of the UI in memory (Shadow tree). When som
 
 == 2. Building a React Native User Interface
 
+Finished app in Snack Expo::
+https://snack.expo.dev/@psaitam/mobiledev-week1?platform=web
+
 * [x] Implement a simple static React Native user interface for a small REST-based app (e.g., a weather app, currency converter, or news headlines viewer).
 * [x] Use at least three different core components (besides View and Text) in your app layout, and explain briefly what role each of them plays in mobile development.
 ** `ScrollView`: A container that allows for scrolling content. This is important in mobile development because screen space is limited, and users often need to scroll to see more content.
