@@ -1,0 +1,111 @@
+= 2nd React Native Week Exercises
+:icons: font
+
+== Instructions
+
+Goal:: Build a polished single screen with React Native core components, practice modularization, handle SafeAreaView/StatusBar/Platform, then swap the core UI to Material (react-native-paper) — still using mock data (no network).
+
+[NOTE]
+====
+✅ Do everything in Expo Snack (https://snack.expo.dev).  
+For Exercise 3, add `react-native-paper` in Snack’s Dependencies.
+====
+
+----
+/src
+  /screens
+    WeatherScreen.js
+  /components
+    Header.js
+    CityInput.js
+    PrimaryButton.js
+    WeatherPanel.js
+  /utils
+    mockWeather.js
+    weatherCodeMap.js   // maps numeric code -> emoji/icon
+App.js
+
+----
+
+== Rules
+
+* One React component per file; default export each.
+* Keep styles co-located with `StyleSheet.create`.
+* Pass only the props each component needs; no sibling cross-imports.
+* Next week: multiple screens in `/screens` (with navigation).
+
+== Exercise 1 — Layout Basics (Core-only, modular)
+
+Goal:: Structure + platform chrome + files in place.
+
+=== Requirements
+
+* Build `/screens/WeatherScreen.js` with two vertical regions using flex:
+** Header (~1/4 height) — title *“Weather Now”*.
+** Content (~3/4) — placeholder *“Weather Info”*.
+* Use: `SafeAreaView`, `StatusBar`, `View`, `Text`, `Button`.
+* Extract at least two components into `/components`: `Header`, `WeatherPanel` (placeholder).
+* Ensure nothing draws under the StatusBar on Android/iOS.
+
+Deliverable:: Clean, centered single-screen mock UI.
+
+== Exercise 2 — Core Components, Mock Data & Polish (Core-only, modular)
+
+Goal:: Multiple core components + minimal state + basic styling & platform details (still no network).
+
+=== Requirements
+
+* Add `CityInput` (`TextInput` + *Clear* button) and `PrimaryButton` (wrapper around `Button`).
+* Introduce mock data:
+** Display city, temperature (°C), wind (km/h) and a placeholder icon in `WeatherPanel` (you can map code → emoji via `weatherCodeMap.js`).
+** Add an `ActivityIndicator` state toggled by a *“Simulate Loading”* press.
+** Show at least one row layout (e.g., temp + wind side-by-side).
+
+Props (JS)::  
+* `CityInput.js`: `value`, `onChangeText`, `onClear`, `onSubmit`  
+* `PrimaryButton.js`: `title`, `onPress`, `disabled`
+
+=== Polish
+
+* Keep styles inside each component with `StyleSheet.create` (simple values like padding `16`, gap `12`).
+* Wrap main content with `KeyboardAvoidingView` (`behavior="padding"` on iOS).
+* Add one `Platform.select` tweak (e.g., small padding or fontSize difference).
+* Verify on small & large device frames in Snack.
+
+== Exercise 3 — Material Swap (react-native-paper, mock data)
+
+Goal:: Compare core-only vs. Material components without changing app logic.
+
+=== Instructions
+
+* In Snack, add `react-native-paper` (Dependencies).
+* Wrap `App.js` with `PaperProvider`.
+* Replace in your components (keep files modular):
+** `Header` → `Appbar.Header` (title *“Weather Now”*; optional info/theme toggle).
+** Buttons → `Paper Button` (`mode="contained"` / `outlined`).
+** `WeatherPanel` → `Paper Card` (large temperature; small wind row).
+* Optional:
+** `Snackbar` for temporary messages.
+** `Dialog` for *“About”*.
+** FAB (*refresh*) — still no network logic.
+
+Deliverable:: The same screen rendered with Material components, still using `mockWeather` and local state.
+
+Finished app in Snack Expo::
+https://snack.expo.dev/@psaitam/mobiledev-week2?platform=web
+
+== Short theory (concise)
+
+Why is one component per file helpful for testing, readability, and reuse?::
+* Faster to find and edit
+* Easier to replace or reuse (all related code is at one place)
+* Simpler to test in isolation, no need to worry about siblings or outside dependencies
+
+One advantage of core-only components vs. one advantage of Material (Paper).::
+* Core-only: Lightweight, no extra dependencies, full control over styling and behavior. Customizable to any design.
+* Material (Paper): Pre-built, consistent and polished UI components that follow Material Design guidelines (google knows best practices and has done the work for you).
+
+What do `SafeAreaView` and `StatusBar` ensure on iOS/Android?::
+* `SafeAreaView`: Ensures that content is not obscured by device notches, status bars, or other screen elements. This is important for modern devices with irregular screens.
+* `StatusBar`: Allows you to control the appearance of the status bar (e.g., text color, background color, information about time battery notifications etc.). This is important for ensuring that it matches the app design and remains readable.
+
