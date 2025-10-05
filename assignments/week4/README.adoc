@@ -1,0 +1,36 @@
+= Mobile Development Exercises
+
+Finished Snack Expo App (Bottom navigation for Exercises):: https://snack.expo.dev/@psaitam/mobiledev-week4?platform=web
+
+== Exercise 1 — Weather/REST Functionality (Fetching)
+
+Implement functionality for last week’s weather forecast app (or any RESTful app).
+
+* Fetch data from a weather API of your choice (e.g., OpenWeatherMap).
+* Use the Fetch API with `async/await`.
+* Add a text input for the city name. When the user taps a button, the app fetches and updates the screen with that city’s forecast.
+
+== Exercise 2 — Getting Familiar with Device APIs
+
+Build a level app in React Native (single screen).
+
+* Use the device *Accelerometer* sensor.
+* The app should change the background color depending on the device’s orientation.
+* It should also indicate whether the device is level (for example, by displaying text like “Level” or changing the background to green when the device is flat).
+
+=== Discussion Prompt (for next week)
+
+*How does the OS supervise apps that access privacy-sensitive data (e.g., Location)?*  
+What does this look like from the user’s perspective on Android (permissions, prompts, settings)?  
+_(We’ll return to implementation details next time.)_
+
+== Exercise 3 — Device-Specific Code
+
+Explore platform-specific components in React Native.
+
+Using the `Linking` module, choose two common intent actions from the list and implement them in your app:
+
+* Make a phone call
+* Open Maps to a specific location
+* Send an email
+* Open the web browser to a chosen URL
