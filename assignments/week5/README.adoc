@@ -1,0 +1,59 @@
+= React Native Exercises
+
+== Exercise 1: Permissions and Location
+
+Request permission to access the device’s location and fetch the current coordinates (latitude and longitude).
+
+Display the coordinates on the screen and add a button to refresh the location.
+
+If permission is denied, show a clear message to the user.
+
+[NOTE]
+====
+*Hint:* Use the `expo-location` library and the functions `requestForegroundPermissionsAsync` and `getCurrentPositionAsync`.
+====
+
+
+== Exercise 2: Async Storage – Saving Settings
+
+Create a simple settings view where the user can, for example (it can be a weather app or any other app/context of your choice):
+
+* Enter their favourite city (for example, for a weather app)
+* Choose measurement units (`"metric"` or `"imperial"`)
+* Save these values locally using AsyncStorage, and automatically load them when the app restarts.
+
+The values should persist between app sessions.
+
+[NOTE]
+====
+*Hint:* Use the `@react-native-async-storage/async-storage` library and its `setItem` / `getItem` functions.
+====
+
+
+== Exercise 3: Camera and Permission
+
+Create a simple camera screen that:
+
+* Requests camera permission
+* Displays the camera preview if permission is granted
+* Allows the user to take a photo and shows a small preview of the captured image on the screen
+* If the user does not grant permission, display a message and a way to request it again.
+
+[NOTE]
+====
+*Hint:* Use the `expo-camera` library and the `useCameraPermissions` hook.
+====
+
+
+== Theory Task 2: Secure Data Storage (no coding)
+
+Consider a situation where your app needs to store sensitive data, such as secret API keys, access tokens, or passwords.
+
+* Where and how should these values be stored securely?
+* Why should they not be saved in AsyncStorage or plain text files?
+* What secure alternatives exist for React Native apps?
+
+[NOTE]
+====
+*Hint:* Explore libraries like `expo-secure-store` or native *Keychain* / *Keystore* solutions.
+====
