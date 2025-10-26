@@ -1,5 +1,7 @@
 = React Native Exercises
 
+Finished Snack Expo App (Drawer/Burger to navigate to "Exercise 5"):: https://snack.expo.dev/@psaitam/mobiledev-week5?platform=web
+
 == Exercise 1: Permissions and Location
 
 Request permission to access the device’s location and fetch the current coordinates (latitude and longitude).
@@ -49,9 +51,11 @@ Create a simple camera screen that:
 
 Consider a situation where your app needs to store sensitive data, such as secret API keys, access tokens, or passwords.
 
-* Where and how should these values be stored securely?
-* Why should they not be saved in AsyncStorage or plain text files?
-* What secure alternatives exist for React Native apps?
+Where and how should these values be stored securely?:: Sensitive data should be stored in secure sorage solutions. These are provided by the operating system. Usually this kind of storage is encrypted and protected the system itself, so apps can only access their own data.
+
+Why should they not be saved in AsyncStorage or plain text files?:: AsyncStorage and plain text files do not provide encryption or other secure mechanisms. This makes it easy for other apps to access this data. This may causse security issues such as data leaks or unauthorized access.
+
+What secure alternatives exist for React Native apps?:: There are multiple libraries which help with this. The easiest for expo apps might be expo-secure-store. This provides a simple API similar to the AsyncStorage API. There are also other libraries such as react-native-keychain or react-native-encrypted storage with more fine-grained control. Alternatively data can also be stored securely on external systems like backend servers.
 
 [NOTE]
 ====
