@@ -1,12 +1,7 @@
 = 6th React Native Week Exercises (the last ones)
 
 
-Finished Snack Expo App (Drawer/Burger to navigate to "Exercise 5"):: https://snack.expo.dev/@psaitam/mobiledev-week6
-
-[NOTE]
-====
-Somehow my snack expo overwrote my previous project with a fresh one so I had to copy a previous version into the project to get it working.
-====
+Finished Snack Expo App:: https://snack.expo.dev/@psaitam/mobiledev-week6
 
 
 == Exercise 1: Shared State with Zustand
