@@ -13,5 +13,6 @@ This repository contains the code and resources for the Mobile App Development 2
 ** link:assignments/week3/README.adoc[Week 3]
 ** link:assignments/week4/README.adoc[Week 4]
 ** link:assignments/week5/README.adoc[Week 5]
+** link:assignments/week6/README.adoc[Week 6]
 
 * Final Project

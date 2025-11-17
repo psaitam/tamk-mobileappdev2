@@ -1,0 +1,122 @@
+= 6th React Native Week Exercises (the last ones)
+
+
+Finished Snack Expo App (Drawer/Burger to navigate to "Exercise 5"):: https://snack.expo.dev/@psaitam/mobiledev-week6
+
+[NOTE]
+====
+Somehow my snack expo overwrote my previous project with a fresh one so I had to copy a previous version into the project to get it working.
+====
+
+
+== Exercise 1: Shared State with Zustand
+
+Create a simple app with two views that share data using the Zustand state management library.
+
+Your tasks:
+
+* Create a Zustand store (e.g. `useCounter.js`) with one shared variable such as `count` and functions to modify it (`increase`, `decrease`, `reset`).
+* Implement two screens:
+** *CounterScreen* - buttons to modify the counter
+** *DisplayScreen* - shows the current counter value
+* Add navigation between the screens.
+* Verify that updating the counter in one screen immediately affects the other.
+
+[NOTE]
+====
+*Hint:* Use Zustand's `create` function and React Navigation for switching screens.
+====
+
+Optional extension: Replace the counter with another simple shared piece of data (preferences, toggle, etc.).
+
+
+== Exercise 2: Persisting State with AsyncStorage
+
+Extend the previous app to save the shared data persistently using AsyncStorage.
+
+Your tasks:
+
+* Add Zustand's `persist` middleware to your store.
+* Configure storage using:  
+  `createJSONStorage(() => AsyncStorage)`
+* Verify that the data remains available after restarting the app.
+* (Optional) Add a *Reset Data* button that clears the stored values.
+
+[NOTE]
+====
+*Hint:* The `persist` middleware works similarly to Redux persist, but plug-and-play for Zustand.
+====
+
+
+== Theory Task 1 - Project Structure and File Organization
+
+Goal:
+Reflect on how a React Native project should be organized for clarity and scalability.
+
+Tasks:
+
+1. Plan your own project and describe how you should organize your files.
+
+  I like organizing my coding projects by feature and responsibility instead of by file type. This way the related code stays together, and ther are less enormous folders.
+
+2. List at least these key folders and their responsibilities:
+
+  * **/screens** - main views of the application. Each screen represents a full page or route. Uses top-level components from the features.
+  * **/components** - reusable small UI parts used across multiple screens. Nothing feature-specific.
+  * **/features/<feature>** - specific functionalities or folders 
+  * **/features/<feature>/store** - shared state management (stores and actions for this feature)
+  * **/data** - API abstractions or local data handling such as loading or saving data. Also would include the API model.
+  * **/utils** - helper functions and small reusable logic. Also not feature-specific
+  * **/config** - Global app configuration such as constants, env vars and such.
+
+3. Discuss: Why is clear structure important when projects grow?
+
+  * It keeps maintenance easier as the project evolves.
+  * Developers know where to find code quickly.
+  * Conventions are used to make devs live easier.
+  * Helps to avoid duplication when multiple people work on the same codebase.
+  * It makes it easier to add new features and start working on the codebase.
+  * Helps with separation of concern. Components in the store folder make them feel off.
+
+---
+
+== Theory Task 2 - State Management in React Native
+
+Goal:
+Understand different ways to manage state in React Native and their typical use cases.
+
+Tasks:
+
+1. Briefly explain what “state management” means in React Native.
+
+  State management is the way an aplication handles storing, updating and sharing data across the components. It sets a global pattern on how to do these kinds of tasks.
+  It also ensures, the ui correctly reflects the current state of the app and makes it predictable what action has what effect on the app.
+
+2. Compare these approaches:
+
+   * **React's useState and useContext**
+     ** Typical use case: Local component state or small amounts of shared state. Often also view-only state.
+     ** Advantages: Simple, no extra dependencies
+     ** Disadvantages: More difficult when the projects gets largers. No "overview" or central place where actions are defined.
+
+   * **Zustand**
+     ** Typical use case: Lightweight global state small to medium apps.
+     ** Advantages: Very easy to use, minimal boilerplate, flexible
+     ** Disadvantages: When app gets massive, might lack some structure
+
+   * **Redux / Redux Toolkit**
+     ** Typical use case: Large and complex apps which require a strictly defined data flow
+     ** Advantages: React standard, good components and large community, clear pattern
+     ** Disadvantages: Boilerplate, learning curve
+
+   * **React Query / TanStack Query**
+     ** Typical use case: Representing server state and API state in the app
+     ** Advantages: Handles caching, refetching, loading and error states. Flexibly configurable.
+     ** Disadvantages: Not necessary useful for UI state. Good to use together with a proper UI state library.
+
+3. Which one would you choose for your own small app, and why?
+
+  Most likely i would chose Zustand, because its really easy to use and requires almost no setup. It is easy to understand while still being enought flexible for a mobile application.
+  Jotai also sounds very interesting but it seems it has a bit less structure than Zustand.
+
+
