@@ -15,7 +15,6 @@ abstract class Expense with _$Expense {
     required String paidByPersonId,
     required List<String> participantIds,
 
-    // ✅ NEW: optional receipt / attachment
     String? attachmentUrl,
 
     String? note,
@@ -32,7 +31,7 @@ abstract class Expense with _$Expense {
   }
 }
 
-/// Firestore helpers
+// Firestore helpers
 DateTime? _timestampToDateTime(dynamic value) {
   if (value == null) return null;
   return (value as Timestamp).toDate();
