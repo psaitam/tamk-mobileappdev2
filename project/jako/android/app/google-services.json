@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "521275073342",
+    "project_id": "jako-prod",
+    "storage_bucket": "jako-prod.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:521275073342:android:1115b7bcd028ce70e1426f",
+        "android_client_info": {
+          "package_name": "com.example.jako"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "521275073342-07fuv99su0r0h3eu2qsi63267680et17.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jako",
+            "certificate_hash": "0a3cb7199e9ae86a6034313a4b3bbc84ecdc7263"
+          }
+        },
+        {
+          "client_id": "521275073342-9ofkb27qv6e45k7eofjdthjfutk91oj0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDqrJ74dUBxKgGqmSDwtvZ9pfhcy6ABZL4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "521275073342-9ofkb27qv6e45k7eofjdthjfutk91oj0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "521275073342-mp0hcsa88re56mhopdctioejk8dddin7.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.jako"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
